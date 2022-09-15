@@ -50,9 +50,13 @@ public class MainWindow extends AnchorPane {
             response = Ui.getExit();
         }
         dialogContainer.getChildren().addAll(
-                DialogBox.getUserDialog(input, userImage),
-                DialogBox.getDukeDialog(response, dukeImage)
+                DialogBox.getUserDialog(input, userImage)
         );
+        if (!response.equals("")) {
+            dialogContainer.getChildren().addAll(
+                    DialogBox.getDukeDialog(response, dukeImage)
+            );
+        }
         userInput.clear();
         if (input.equals("bye")) {
             Platform.exit();
